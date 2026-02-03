@@ -7,20 +7,21 @@ const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?/~`-=';
 
 //tell the computer how to do what we want
 function generatePass() {
-    // get length from input
+
+    // takes the length input and tells the program how long we want the password to be 
     const length = parseInt(document.querySelector('#length').value, 10);
 
-    // get checked values
+    // reads checkboxes and sets defaults
     const useUppercase = document.querySelector('#uppercase').checked;
     const useNumbers = document.querySelector('#numbers').checked;
     const useSymbols = document.querySelector('#symbols').checked;
     const useLowercase = true;
 
-    // empty password + charset
+    // empty password + charset so we can build password in steps
     let password = '';
     let charSet = '';
 
-    // always include lowercase
+   //makes sure the password adheres to rules we set
     if (useLowercase) charSet += lowerCase;
     if (useUppercase) charSet += upperCase;
     if (useNumbers) charSet += numbers;
