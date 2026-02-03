@@ -52,6 +52,10 @@ button:hover {
   background-color: #0062cc;
 }
 
+input[type="checkbox"]:checked {
+  accent-color: #2196F3;
+}
+
 #password {
   margin: 10px 0;
   padding: 5px;
