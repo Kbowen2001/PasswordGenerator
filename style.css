@@ -41,19 +41,23 @@ button {
   margin: 1.1rem auto;
   padding: 1rem 1.1rem;
   font-size: 0.9rem;
-  background-color: #007bff;
+  background-color: #f877f2;
   color: white;
   font-weight: bold;           
   border: none;
   border-radius: 0.4rem;
   cursor: pointer;
 }
+
 button:hover {
-  background-color: #0062cc;
+  background-color: rgba(69, 137, 226, 0.794);
 }
 
+
+
+
 input[type="checkbox"]:checked {
-  accent-color: #2196F3;
+  accent-color: #f877f2;
 }
 
 #password {
