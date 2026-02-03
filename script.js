@@ -5,28 +5,38 @@ const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const numbers = '0123456789';
 const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?/~`-=';
 
-
 //tell the computer how to do what we want
-function generatePassword(length, useLower, useUpper, useNumbers, useSymbols) {
-    let availableChars = '';
+function generatePass() {
+    // get length from input
+    const length = parseInt(document.querySelector('#length').value, 10);
 
-if(useLower) availableChars += lowerCase;
-if(useUpper) availableChars += upperCase;
-if(useNumbers) availableChars += numbers;
-if(useSymbols) availableChars += specialChars;
+    // get checked values
+    const useUppercase = document.querySelector('#uppercase').checked;
+    const useNumbers = document.querySelector('#numbers').checked;
+    const useSymbols = document.querySelector('#symbols').checked;
+    const useLowercase = true;
 
-        if(availableChars.length === 0) {
-            return 'type something in'; //this is an error message
-        }
+    // empty password + charset
+    let password = '';
+    let charSet = '';
 
-let password = '';
-for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * availableChars.length);
-    password += availableChars[randomIndex]; //randomizes the password
-}
+    // always include lowercase
+    if (useLowercase) charSet += lowerCase;
+    if (useUppercase) charSet += upperCase;
+    if (useNumbers) charSet += numbers;
+    if (useSymbols) charSet += specialChars;
 
-return password;
+    if (charSet.length === 0 || Number.isNaN(length) || length <= 0) {
+        document.querySelector('#password').value = '';
+        return;
+    }
 
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charSet.length);
+        password += charSet[randomIndex];
+    }
+
+    document.querySelector('#password').value = password;
 }
 
 
@@ -39,13 +49,4 @@ const symbolsCheckbox = document.getElementById('symbols');
 const uppercaseCheckbox = document.getElementById('uppercase');
 
 //adding listeners (this makes functions execute when you click buttons etc)
-generateBtn.addEventListener('click', () => {
-    const length = parseInt(lengthInput.value, 10);
-    const useNumbers = numbersCheckbox.checked;
-    const useSymbols = symbolsCheckbox.checked;
-    const useUppercase = uppercaseCheckbox.checked;
-    const useLowercase = true;
-
-    const newPassword = generatePassword(length, useLowercase, useUppercase, useNumbers, useSymbols);
-    passwordResultEl.value = newPassword;
-});
+generateBtn.addEventListener('click', generatePass);
