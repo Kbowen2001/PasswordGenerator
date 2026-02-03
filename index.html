@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Password Generator</title>
-</head>
-<body>
-    
-        <div class="button-container">
-            <button class="bcontainer1">Button 1</button>
-            <button class="bcontainer2">Button 2</button>
-        </div>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Password Generator</h1>
+      <br />
+      <br />
+      <div>
+        <label for="length"> Password Length: </label>
+        <input type="number" id="length" value="10" min="8" max="20" />
+      </div>
+      <!-- Add a div, and inside add 1 label for uppercase, and a checkbox  -->
 
+      <!-- Add a div, and inside add 1 label for numbers, and a checkbox  -->
 
+      <!-- Add a div, and inside add 1 label for symbols, and a checkbox  -->
 
-
-
-
+      <button id="generate">Generate Password</button>
+      <div>
+        <label for="length"> Password Length: </label>
+        <input type="text" id="password" name="password" readonly />
+      </div>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
