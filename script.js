@@ -28,3 +28,24 @@ for (let i = 0; i < length; i++) {
 return password;
 
 }
+
+
+//find elements on the page 
+const generateBtn = document.getElementById('generate');
+const passwordResultEl = document.getElementById('password');
+const lengthInput = document.getElementById('length');
+const numbersCheckbox = document.getElementById('numbers');
+const symbolsCheckbox = document.getElementById('symbols');
+const uppercaseCheckbox = document.getElementById('uppercase');
+
+//adding listeners (this makes functions execute when you click buttons etc)
+generateBtn.addEventListener('click', () => {
+    const length = parseInt(lengthInput.value, 10);
+    const useNumbers = numbersCheckbox.checked;
+    const useSymbols = symbolsCheckbox.checked;
+    const useUppercase = uppercaseCheckbox.checked;
+    const useLowercase = true;
+
+    const newPassword = generatePassword(length, useLowercase, useUppercase, useNumbers, useSymbols);
+    passwordResultEl.value = newPassword;
+});
